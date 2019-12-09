@@ -5,15 +5,15 @@ spring:
     name: sayportservice
   cloud:
     consul:
-      host: 192.168.247.130 #consul地址
+      host: 192.168.247.130 #consul服务器地址
       port: 8500
       discovery:
         register: true
-        hostname: 192.168.0.103
+        hostname: 192.168.0.103  #服务端ip地址
         serviceName: ${spring.application.name}
         health-check-path: /actuator/health # 健康健康路径，也可以自己写
         health-check-interval: 10s
-        #instance-id: consul-client00 实例ID，唯一值
+        #微服务下的实例名称,一个微服务可以有多个实例提供负载均衡
         instanceId: provider8002
 
 management:
