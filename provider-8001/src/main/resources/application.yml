@@ -1,0 +1,17 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: sayportservice    #微服务名称
+  cloud:
+    consul:
+      host: 192.168.247.130 #consul地址
+      port: 8500
+      discovery:
+        register: true           #是否注册到consul中
+        hostname: 192.168.0.104  #服务端ip地址
+        serviceName: ${spring.application.name}
+        health-check-path: /actuator/health # actuator提供的健康检查路径，也可以自己写
+        health-check-interval: 10s
+        #微服务下的实例名称,一个微服务可以有多个实例提供负载均衡
+        instanceId: provider8001

@@ -1,0 +1,22 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: sayportservice
+  cloud:
+    consul:
+      host: 192.168.247.130 #consul地址
+      port: 8500
+      discovery:
+        register: true
+        hostname: 192.168.0.103
+        serviceName: ${spring.application.name}
+        health-check-path: /actuator/health # 健康健康路径，也可以自己写
+        health-check-interval: 10s
+        #instance-id: consul-client00 实例ID，唯一值
+        instanceId: provider8002
+
+management:
+  endpoint:
+    health:
+      show-details: always
