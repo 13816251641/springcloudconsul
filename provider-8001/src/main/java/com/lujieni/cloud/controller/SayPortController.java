@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class SayPortController {
 
     @RequestMapping(value = "/sayport", method = RequestMethod.GET)
-    public String sayPort(){
+    public String sayPort() throws Exception{
+       /* Thread.sleep(7 * 1000);*/
         return "provider-8001";
     }
 }

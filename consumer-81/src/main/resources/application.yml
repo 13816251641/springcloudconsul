@@ -1,5 +1,11 @@
 server:
   port: 81
+
+ribbon:
+  MaxAutoRetriesNextServer: 0 #不允许调用另一个服务实例去重试
+  MaxAutoRetries: 1
+  ReadTimeout: 15000
+
 spring:
   application:
     name: consumer-81
