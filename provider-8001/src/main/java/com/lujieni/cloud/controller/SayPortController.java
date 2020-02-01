@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SayPortController {
 
-    @RequestMapping(value = "/sayport", method = RequestMethod.GET)
+    @RequestMapping(value = "/sayport", method = RequestMethod.POST)
     public String sayPort() throws Exception{
-       /* Thread.sleep(7 * 1000);*/
+        System.out.println("provider-8001执行了");
+        Thread.sleep(7 * 1000);
         return "provider-8001";
     }
 }

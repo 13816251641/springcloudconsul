@@ -6,7 +6,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients    //启动feign客户端,为接口生成动态代理
+/*启动feign客户端,扫描com包下的所有feign接口并生成动态代理类*/
+@EnableFeignClients(basePackages = "com")
 @EnableDiscoveryClient //启用服务发现
 public class Consumer81_App {
 

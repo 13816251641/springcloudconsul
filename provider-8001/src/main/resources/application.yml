@@ -9,11 +9,11 @@ spring:
       port: 8500
       discovery:
         register: true           #是否注册到consul中
-        hostname: 192.168.0.104   #服务端ip地址
+        hostname: 192.168.0.105   #服务端ip地址
         serviceName: ${spring.application.name}
         # 指定consul调用actuator提供的健康检查的路径
         health-check-path: /actuator/health
         # 健康检查的频率
-        health-check-interval: 40s
+        health-check-interval: 30s
         #微服务下的实例名称,一个微服务可以有多个实例提供负载均衡
         instanceId: provider8001

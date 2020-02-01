@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SayPortController {
 
-    @RequestMapping(value = "/sayport", method = RequestMethod.GET)
+    @RequestMapping(value = "/sayport", method = RequestMethod.POST)
     public String sayPort(){
         return "provider-8002";
     }
