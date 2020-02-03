@@ -1,10 +1,13 @@
 server:
   port: 81
 
-#sayportservice:
-#  ribbon:
-#    # 基于配置文件形式的针对单个服务的Ribbon负载均衡策略,经测试有用
-#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+sayportservice:
+  ribbon:
+    # 基于配置文件形式的针对单个服务的Ribbon负载均衡策略,经测试有用
+    # NFLoadBalancerRuleClassName放在全局中无效!!!
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+    #ReadTimeout也有效,能覆盖全局
+    ReadTimeout: 1000
 
 
 
@@ -13,7 +16,6 @@ ribbon:
   MaxAutoRetries: 1 #服务挂了和服务超时都会重试
   ReadTimeout: 5000
   OkToRetryOnAllOperations: true
-
 
 spring:
   application:
@@ -27,4 +29,17 @@ spring:
 
 feign:
   hystrix:
-    enabled: false #默认不开启hystrix功能
+    enabled: true #springcloud默认不开启hystrix功能
+
+
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 15000 #hystrix的超时时间(ms)
+      circuitBreaker:
+        requestVolumeThreshold: 20

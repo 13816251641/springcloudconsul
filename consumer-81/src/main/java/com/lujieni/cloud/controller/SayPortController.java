@@ -15,7 +15,7 @@ public class SayPortController {
 
     @RequestMapping(value = "/sayport", method = RequestMethod.GET)
     public String sayPort(){
-        return sayPortClientService.sayPort();
+        return sayPortClientService.say();
     }
 
 }
