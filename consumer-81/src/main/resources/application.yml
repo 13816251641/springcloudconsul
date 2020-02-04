@@ -7,14 +7,14 @@ sayportservice:
     # NFLoadBalancerRuleClassName放在全局中无效!!!
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
     #ReadTimeout也有效,能覆盖全局
-    ReadTimeout: 1000
+    ReadTimeout: 8000
 
 
 
 ribbon:
   MaxAutoRetriesNextServer: 0 #不允许调用另一个服务实例去重试
   MaxAutoRetries: 1 #服务挂了和服务超时都会重试
-  ReadTimeout: 5000
+  ReadTimeout: 8000
   OkToRetryOnAllOperations: true
 
 spring:
@@ -31,15 +31,23 @@ feign:
   hystrix:
     enabled: true #springcloud默认不开启hystrix功能
 
-
-
-
 hystrix:
+  threadpool:
+    sayportservice: #指定某一个feignclient的线程池大小,有效
+      coreSize: 5
+    default:
+      coreSize: 15
+      maxQueueSize: -1 #如果线程池的线程都在工作,则不排队直接拒绝
   command:
+#    say:   我想指定feignclient中的某一个方法的超时时间,无效!!!
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 10000
     default:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 15000 #hystrix的超时时间(ms)
+            timeoutInMilliseconds: 10000 #hystrix的超时时间(ms)
       circuitBreaker:
-        requestVolumeThreshold: 20
+        requestVolumeThreshold: 2 # 10 seconds内有多少个请求才开启断路器监控

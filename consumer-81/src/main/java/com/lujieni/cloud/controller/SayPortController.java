@@ -18,7 +18,7 @@ public class SayPortController {
         return sayPortClientService.say();
     }
 
-    @RequestMapping(value = "/say", method = RequestMethod.POST)
+    @RequestMapping(value = "/bye", method = RequestMethod.GET)
     public String bye(){
         return sayPortClientService.bye();
     }

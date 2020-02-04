@@ -12,6 +12,7 @@
         <module>provider-8002</module>
         <module>api</module>
         <module>consumer-81</module>
+        <module>monitor</module>
     </modules>
     <packaging>pom</packaging>
 
