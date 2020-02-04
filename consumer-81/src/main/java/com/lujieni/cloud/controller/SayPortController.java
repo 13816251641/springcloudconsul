@@ -13,9 +13,14 @@ public class SayPortController {
     @Autowired
     private SayPortClientService sayPortClientService;
 
-    @RequestMapping(value = "/sayport", method = RequestMethod.GET)
-    public String sayPort(){
+    @RequestMapping(value = "/say", method = RequestMethod.GET)
+    public String say(){
         return sayPortClientService.say();
+    }
+
+    @RequestMapping(value = "/say", method = RequestMethod.POST)
+    public String bye(){
+        return sayPortClientService.bye();
     }
 
 }

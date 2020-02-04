@@ -11,6 +11,11 @@ import org.springframework.stereotype.Service;
 public class SayPortClientServiceFallback implements SayPortClientService {
     @Override
     public String say() {
-        return "熔断方法";
+        return "say的熔断方法";
+    }
+
+    @Override
+    public String bye() {
+        return "bye的熔断方法";
     }
 }
