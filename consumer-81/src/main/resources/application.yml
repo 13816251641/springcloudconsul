@@ -7,7 +7,7 @@ sayportservice:
     # NFLoadBalancerRuleClassName放在全局中无效!!!
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
     #ReadTimeout也有效,能覆盖全局
-    ReadTimeout: 8000
+    ReadTimeout: 4000
 
 
 
@@ -48,6 +48,6 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 10000 #hystrix的超时时间(ms)
+            timeoutInMilliseconds: 1000 #hystrix的超时时间(ms)
       circuitBreaker:
         requestVolumeThreshold: 2 # 10 seconds内有多少个请求才开启断路器监控
