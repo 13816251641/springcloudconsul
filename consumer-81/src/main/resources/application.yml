@@ -34,9 +34,9 @@ feign:
 hystrix:
   threadpool:
     sayportservice: #指定某一个feignclient的线程池大小,有效
-      coreSize: 5
+      coreSize: 1
     default:
-      coreSize: 15
+      coreSize: 5
       maxQueueSize: -1 #如果线程池的线程都在工作,则不排队直接拒绝
   command:
 #    say:   我想指定feignclient中的某一个方法的超时时间,无效!!!
