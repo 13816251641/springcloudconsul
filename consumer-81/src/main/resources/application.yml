@@ -11,6 +11,7 @@ sayportservice:
 
 
 
+
 ribbon:
   MaxAutoRetriesNextServer: 0 #不允许调用另一个服务实例去重试
   MaxAutoRetries: 1 #服务挂了和服务超时都会重试
@@ -26,6 +27,11 @@ spring:
       port: 8500
       discovery:
         register: false #设置不需要注册到consul中
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;DatabaseName=rabbitmq
+    username: sa
+    password: root
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
 
 feign:
   hystrix:
