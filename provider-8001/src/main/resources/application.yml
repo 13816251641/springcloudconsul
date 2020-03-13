@@ -5,7 +5,7 @@ spring:
     name: sayportservice    #微服务名称
   cloud:
     consul:
-      host: 192.168.247.130 #consul服务器地址
+      host: 192.168.254.130 #consul服务器地址
       port: 8500
       discovery:
         register: true           #是否注册到consul中
