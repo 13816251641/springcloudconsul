@@ -13,6 +13,13 @@ import java.util.List;
 @RestController
 public class SayPortController {
 
+    @RequestMapping(value = "/zuul", method = RequestMethod.GET)
+    public String zuul() throws Exception{
+        System.out.println("provider-8001执行了zuul");
+        return "provider-8001:zuul";
+    }
+
+
     @RequestMapping(value = "/say", method = RequestMethod.POST)
     public String say() throws Exception{
         System.out.println("say:provider-8001执行了");
