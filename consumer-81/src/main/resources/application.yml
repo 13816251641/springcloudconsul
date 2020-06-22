@@ -27,15 +27,15 @@ spring:
       port: 8500
       discovery:
         register: false #设置不需要注册到consul中
-  datasource:
-    url: jdbc:sqlserver://localhost:1433;DatabaseName=rabbitmq
-    username: sa
-    password: root
-    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#  datasource:
+#    url: jdbc:sqlserver://localhost:1433;DatabaseName=rabbitmq
+#    username: sa
+#    password: root
+#    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
 
 feign:
   hystrix:
-    enabled: true #springcloud默认不开启hystrix功能
+    enabled: false #springcloud默认不开启hystrix功能
 
 hystrix:
   threadpool:

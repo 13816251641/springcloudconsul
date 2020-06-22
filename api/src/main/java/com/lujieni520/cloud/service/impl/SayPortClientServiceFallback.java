@@ -23,6 +23,11 @@ public class SayPortClientServiceFallback implements SayPortClientService {
     }
 
     @Override
+    public String insert() {
+        return "insert 的熔断方法";
+    }
+
+    @Override
     public String bye() {
         return "bye的熔断方法";
     }
