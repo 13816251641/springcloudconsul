@@ -27,10 +27,11 @@ public class SayPortController {
     }
 
 
-    @RequestMapping(value = "/say", method = RequestMethod.POST)
+    @RequestMapping(value = "/say", method = RequestMethod.GET)
     public String say(){
         System.out.println("say:provider-8002执行了");
-        return "say:provider-8002";
+        throw new RuntimeException();
+        //return "say:provider-8002";
     }
 
     @RequestMapping(value = "/bye", method = RequestMethod.POST)

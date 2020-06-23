@@ -12,7 +12,7 @@ import java.util.Map;
 @FeignClient(value="sayportservice",fallback = SayPortClientServiceFallback.class)
 public interface SayPortClientService {
     /* feign的接口中必须指定GetMapping和url */
-    @PostMapping(value = "/say")
+    @GetMapping(value = "/say")
     String say();
 
     /* feign的接口中必须指定GetMapping和url */
