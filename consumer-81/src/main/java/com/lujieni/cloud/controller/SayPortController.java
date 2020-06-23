@@ -27,9 +27,12 @@ public class SayPortController {
 
 
     @RequestMapping(value = "/insert", method = RequestMethod.GET)
-    public void insert(){
+    public String insert(){
         String result = sayPortClientService.insert();
         System.out.println(result);
+        return result;
     }
+
+
 
 }

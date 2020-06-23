@@ -9,6 +9,7 @@ import java.util.Map;
 /**
  * @Auther ljn
  * @Date 2020/2/1
+ * Fallback 接口实现类需要注解 @Service
  */
 @Service
 public class SayPortClientServiceFallback implements SayPortClientService {

@@ -15,6 +15,11 @@ spring:
         health-check-interval: 30s
         #微服务下的实例名称,一个微服务可以有多个实例提供负载均衡
         instanceId: provider8002
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/springcloud_consul
+    driver-class-name: com.mysql.jdbc.Driver
 
 management:
   endpoint:

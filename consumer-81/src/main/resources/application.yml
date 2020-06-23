@@ -35,7 +35,7 @@ spring:
 
 feign:
   hystrix:
-    enabled: false #springcloud默认不开启hystrix功能
+    enabled: true #springcloud默认不开启hystrix功能
 
 hystrix:
   threadpool:
@@ -54,6 +54,6 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 1000 #hystrix的超时时间(ms)
+            timeoutInMilliseconds: 1000 #hystrix的全局超时时间(ms)
       circuitBreaker:
         requestVolumeThreshold: 2 # 10 seconds内有多少个请求才开启断路器监控

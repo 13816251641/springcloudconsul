@@ -1,8 +1,12 @@
 package com.lujieni.cloud.controller;
 
+import com.lujieni.cloud.damain.StudentPO;
+import com.lujieni.cloud.dao.StudentDao;
 import com.lujieni520.cloud.dto.PetDto;
 import com.lujieni520.cloud.dto.ResponseDto;
 import com.lujieni520.cloud.dto.UserDto;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +16,9 @@ import java.util.List;
 
 @RestController
 public class SayPortController {
+
+    @Autowired
+    private StudentDao studentDao;
 
     @RequestMapping(value = "/zuul", method = RequestMethod.GET)
     public String zuul() throws Exception{
@@ -46,5 +53,13 @@ public class SayPortController {
         responseDto.setPetDtos(petDtos);
 
         return responseDto;
+    }
+
+    @RequestMapping(value = "/insert", method = RequestMethod.GET)
+    @Transactional
+    public String insert() throws Exception{
+        studentDao.insert(new StudentPO().setName("lujieni").setAge(29).setGender("男"));
+        int i = 5/0;
+        return "provider-8002:insert succcess";
     }
 }
