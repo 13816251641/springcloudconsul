@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,9 +23,18 @@ public class SayPortController {
     private StudentDao studentDao;
 
     @RequestMapping(value = "/zuul", method = RequestMethod.GET)
-    public String zuul() throws Exception{
-        Thread.sleep(10_000);
+    public String zuul(HttpServletRequest request) throws Exception{
+        //Thread.sleep(10_000);
         System.out.println("provider-8001执行了zuul");
+        String token = request.getHeader("token");
+        Cookie[] cookies = request.getCookies();
+
+        for (Cookie c: cookies) {
+            if(c.getName().equals("name")){
+                String value = c.getValue();
+                System.out.println(value);
+            }
+        }
         return "provider-8001:zuul";
     }
 

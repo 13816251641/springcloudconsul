@@ -11,7 +11,7 @@ spring:
         register: true
         hostname: 10.39.4.95  #服务端ip地址
         serviceName: ${spring.application.name}
-        health-check-path: /actuator/health # 健康健康路径，也可以自己写
+        health-check-path: /actuator/health # 健康检查路径，也可以自己写
         health-check-interval: 30s
         #微服务下的实例名称,一个微服务可以有多个实例提供负载均衡
         instanceId: provider8002
