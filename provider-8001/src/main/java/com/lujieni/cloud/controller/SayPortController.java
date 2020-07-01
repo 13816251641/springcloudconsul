@@ -34,6 +34,10 @@ public class SayPortController {
                 String value = c.getValue();
                 System.out.println(value);
             }
+            if(c.getName().equals("age")){
+                String value = c.getValue();
+                System.out.println(value);
+            }
         }
         return "provider-8001:zuul";
     }
