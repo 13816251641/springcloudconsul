@@ -46,6 +46,7 @@ public class SayPortController {
     @RequestMapping(value = "/say", method = RequestMethod.GET)
     public String say() throws Exception{
         System.out.println("say:provider-8001执行了");
+        Thread.sleep(5_000);
         return "say:provider-8001";
     }
 
