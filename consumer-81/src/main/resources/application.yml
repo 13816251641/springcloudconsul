@@ -5,9 +5,9 @@ sayportservice:
   ribbon:
     # 基于配置文件形式的针对单个服务的Ribbon负载均衡策略,经测试有用
     # NFLoadBalancerRuleClassName放在全局中无效!!!
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
-    #ReadTimeout也有效,能覆盖全局
-    ReadTimeout: 4000
+    # NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+    # ReadTimeout也有效,能覆盖全局
+    ReadTimeout: 2000
 
 
 
@@ -35,7 +35,7 @@ spring:
 
 feign:
   hystrix:
-    enabled: true #springcloud默认不开启hystrix功能
+    enabled: false #springcloud默认不开启hystrix功能
 
 hystrix:
   threadpool:
@@ -56,4 +56,4 @@ hystrix:
           thread:
             timeoutInMilliseconds: 1000 #hystrix的全局超时时间(ms)
       circuitBreaker:
-        requestVolumeThreshold: 2 # 10 seconds内有多少个请求才开启断路器监控
+        requestVolumeThreshold: 10 # 10 seconds内有多少个请求才开启断路器监控
