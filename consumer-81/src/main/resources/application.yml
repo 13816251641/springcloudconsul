@@ -45,7 +45,7 @@ hystrix:
       coreSize: 5
       maxQueueSize: -1 #如果线程池的线程都在工作,则不排队直接拒绝,拒绝的手段就是调用降级方法(如果有的话)
   command:
-    SayPortClientService#say():   #我想指定feignclient中的某一个方法的超时时间,无效!!!
+    SayPortClientService#say():   #我想指定feignclient中的某一个方法的超时时间,有效!!!
       execution:
         isolation:
           thread:
