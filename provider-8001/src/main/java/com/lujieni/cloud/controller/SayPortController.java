@@ -28,7 +28,8 @@ public class SayPortController {
         System.out.println("provider-8001执行了zuul");
         String token = request.getHeader("token");
         Cookie[] cookies = request.getCookies();
-
+        if(cookies == null)
+            return "provider-8001:zuul";
         for (Cookie c: cookies) {
             if(c.getName().equals("name")){
                 String value = c.getValue();

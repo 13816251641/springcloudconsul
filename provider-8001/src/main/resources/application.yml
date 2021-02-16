@@ -1,5 +1,7 @@
 server:
   port: 8001
+  servlet:
+    context-path: /love
 spring:
   application:
     name: sayportservice    #微服务名称
@@ -9,10 +11,10 @@ spring:
       port: 8500
       discovery:
         register: true            #是否注册到consul中
-        hostname: 10.39.4.95   #服务端ip地址
+        hostname: 10.39.4.105   #服务端ip地址
         serviceName: ${spring.application.name}
         # 指定consul调用actuator提供的健康检查的路径
-        health-check-path: /actuator/health
+        health-check-path: /love/actuator/health
         # 健康检查的频率
         health-check-interval: 30s
         #微服务下的实例名称,一个微服务可以有多个实例提供负载均衡

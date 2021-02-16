@@ -6,15 +6,12 @@ sayportservice:
     # 基于配置文件形式的针对单个服务的Ribbon负载均衡策略,经测试有用
     # NFLoadBalancerRuleClassName放在全局中无效!!!
     # NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
-    # ReadTimeout也有效,能覆盖全局
+    # ReadTimeout能覆盖全局中的 ribbon.ReadTimeout
     ReadTimeout: 2000
 
-
-
-
 ribbon:
-  MaxAutoRetriesNextServer: 0 #不允许调用另一个服务实例去重试
   MaxAutoRetries: 1 #服务挂了和服务超时都会重试
+  MaxAutoRetriesNextServer: 0 #不允许调用另一个服务实例去重试
   ReadTimeout: 8000
   OkToRetryOnAllOperations: true
 
@@ -27,12 +24,6 @@ spring:
       port: 8500
       discovery:
         register: false #设置不需要注册到consul中
-#  datasource:
-#    url: jdbc:sqlserver://localhost:1433;DatabaseName=rabbitmq
-#    username: sa
-#    password: root
-#    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-
 feign:
   hystrix:
     enabled: false #springcloud默认不开启hystrix功能
